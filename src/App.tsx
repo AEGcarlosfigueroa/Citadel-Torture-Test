@@ -23,7 +23,7 @@ function App() {
         return (<Inhabitants/>)
       
       case 3:
-        return(<Location/>) 
+        return(Location(data)) 
       
       case 4:
         return(Resources(data.resources))
