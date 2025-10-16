@@ -7,13 +7,11 @@ export default function History( historyInfo: any )
   const [currentOption, setCurrentOption] = useState("default");
 
   const handleOptionChange = (option: any) => {
-    console.log(option);
     setCurrentOption(option);
   }
 
   const renderCurrentOption = () => {
     const currentEvent = eventsArray.find( (elem: any) => { return(elem.year === currentOption) } );
-    console.log(currentEvent);
     if(!currentEvent)
     {
       return <text> </text>;

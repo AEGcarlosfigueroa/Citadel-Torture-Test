@@ -21,7 +21,7 @@ function App() {
       <div style={{flex: 1, flexDirection: 'row', alignItems: 'center', width: '100%', height: '20%', backgroundColor: 'rgba(0,0,0,0.5)'}}>
         <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => setCurrentTab(0)}>Defenses</button>
         <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => navigate("/")}>History</button>
-        <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => setCurrentTab(2)}>Inhabitants</button>
+        <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => navigate("/inhabitants")}>Inhabitants</button>
         <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => navigate("/location")}>Location</button>
         <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => navigate("/resources")}>Resources</button>
       </div>
@@ -29,6 +29,7 @@ function App() {
         <Route path={"/"} element={History(data.history)}/>
         <Route path={"/location"} element={Location(data)}/>
         <Route path={"/resources"} element={Resources(data.resources)}/>
+        <Route path={"/inhabitants"} element={Inhabitants(data.inhabitants)}/>
       </Routes>
     </div>
     
