@@ -5,45 +5,33 @@ import History from './components/History';
 import Inhabitants from './components/Inhabitants';
 import Location from './components/Location';
 import Resources from './components/Resources';
+import ReactDOM from "react-dom/client";
+import { Routes, Route } from "react-router";
+import { useNavigate } from 'react-router';
 
 function App() {
   const [data, setData] = useState(Data);
-  const [currentTab, setCurrentTab] = useState(0);
 
-  const renderCurrentTab = () => {
-    switch(currentTab)
-    {
-      case 0:
-        return (<Defenses/>)
-      
-      case 1:
-        return(<History/>)
+  let navigate = useNavigate();
 
-      case 2:
-        return (<Inhabitants/>)
-      
-      case 3:
-        return(Location(data)) 
-      
-      case 4:
-        return(Resources(data.resources))
-
-      default:
-        return(<></>)  
-    }
-  }
+  const setCurrentTab = (i: number) => []
 
   return (
     <div>
       <div style={{flex: 1, flexDirection: 'row', alignItems: 'center', width: '100%', height: '20%', backgroundColor: 'rgba(0,0,0,0.5)'}}>
         <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => setCurrentTab(0)}>Defenses</button>
-        <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => setCurrentTab(1)}>History</button>
+        <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => navigate("/")}>History</button>
         <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => setCurrentTab(2)}>Inhabitants</button>
-        <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => setCurrentTab(3)}>Location</button>
-        <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => setCurrentTab(4)}>Resources</button>
+        <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => navigate("/location")}>Location</button>
+        <button style={{backgroundColor: 'black', height: '8%', width: '12%', color: 'white'}} onClick={() => navigate("/resources")}>Resources</button>
       </div>
-      {renderCurrentTab()}
+      <Routes>
+        <Route path={"/"} element={History(data.history)}/>
+        <Route path={"/location"} element={Location(data)}/>
+        <Route path={"/resources"} element={Resources(data.resources)}/>
+      </Routes>
     </div>
+    
   )
 }
 
