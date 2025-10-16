@@ -26,7 +26,7 @@ function App() {
         return(<Location/>) 
       
       case 4:
-        return(<Resources/>)
+        return(Resources(data.resources))
 
       default:
         return(<></>)  
