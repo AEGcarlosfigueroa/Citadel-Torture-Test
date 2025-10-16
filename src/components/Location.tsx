@@ -35,10 +35,24 @@ function compareLandmarkDistance( a: any, b: any )
 
 function renderLandmark( landmark: any )
 {
+  let textColor = 'black'
+  if(landmark.type === 'Ruins')
+  {
+    textColor = 'yellow'
+  }
+  else if(landmark.type === 'Town')
+  {
+    textColor = 'blue'
+  }
+  else if(landmark.type === 'Cave')
+  {
+    textColor = 'red'
+  }
+
   return(
     <div style={{ width: '75%', margin: '1%', padding: '1%', backgroundColor: 'black', color: 'white', display: 'flex', flexDirection: 'row' }}>
       <div style={{width: '33%'}}>
-        <text style={{color: 'lightblue', fontSize: '1.5em'}}> {landmark.name} </text>
+        <text style={{color: `${textColor}`, fontSize: '1.5em'}}> {landmark.name} </text>
       </div>
        <div style={{width: '33%'}}>
          <text style={{color: 'lightblue', fontSize: '1.5em', textAlign: 'center'}}> {landmark.type} </text>
